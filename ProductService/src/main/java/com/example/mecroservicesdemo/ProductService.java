@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 
 @SpringBootApplication
@@ -16,7 +17,8 @@ public class ProductService {
     }
 
     @Bean
-    CommandLineRunner runner(ProduitRepository produitRepository){
+    CommandLineRunner runner(ProduitRepository produitRepository, RepositoryRestConfiguration configuration){
+        configuration.exposeIdsFor(Produit.class);
         return args -> {
             produitRepository.save(new Produit("Galaxy S3", 1000, 4));
             produitRepository.save(new Produit("Galaxy S5", 1800, 14));

@@ -1,0 +1,20 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id : ms1
+#          uri: http://localhost:9091/
+#          predicates:
+#            - Path= /customers/**
+#        - id : ms2
+#          uri: http://localhost:9090/
+#          predicates:
+#            - Path= /produits/**
+
+# On peut utiliser ce fichier pour configurer les routes sans utiliser eureka, par exemple pour accées à le
+# Service customer_Service il se fait de consulter le lien suivant : http://localhost:8888/customers/
+# lorsque je consulte ce lien le service gateway accée à le service costumer via le uri : http://localhost:9091/
+# aussi il regarde si la requete (le lien http://localhost:8888/customers/) respecte les prédicats spécifie dans ce fichier application.yml
+
+
+# Remarque : il faut désactiver discovery eureka dans le fichier application.properties pour travailler avec cette manière-là
