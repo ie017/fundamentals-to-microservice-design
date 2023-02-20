@@ -37,15 +37,15 @@ public class BillingServiceApplication {
                 Customer customer = customerRestClient.getCustomerById(Integer.toUnsignedLong(page));
                 Bill bill = new Bill(new Date(),null,customer.getId(),null);
                 PagedModel<Product> pagedModel = productItemRestClient.pageProducts(page-1, 6);
-                ProductItems productItems = new ProductItems();
+                ProductItems productItems = new ProductItems(new ArrayList<>());
                 pagedModel.forEach(product->{
                     ProductItem productItem = new ProductItem();
                     productItem.setId(product.getId());
+                    productItem.setName(product.getName());
                     productItem.setBill(bill);
                     productItem.setPrice(product.getPrice());
                     productItem.setQuantity(product.getQuantity());
                     productItemRepository.save(productItem);
-                    productItems.setProductItemCollection(new ArrayList<>());
                     productItems.getProductItemCollection().add(productItem);
                 });
                 bill.setProductItems(productItems.getProductItemCollection());

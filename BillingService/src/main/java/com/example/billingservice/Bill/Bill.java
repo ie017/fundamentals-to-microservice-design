@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Collection;
@@ -17,7 +18,7 @@ public class Bill {
     @Id
     private String id;
     private Date billingDate;
-    @JsonIgnore /* Pour éviter le bouclage il faut ajouter cette annotation */
+    @DBRef
     private Collection<ProductItem> productItems;
     private Long customerId;
     @JsonIgnore

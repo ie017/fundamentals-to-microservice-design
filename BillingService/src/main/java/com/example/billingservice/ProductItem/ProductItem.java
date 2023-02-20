@@ -19,7 +19,6 @@ public class ProductItem {
     private String id;
     private double quantity;
     private double price;
-    private Long productId;
     private Bill bill;
     @JsonIgnore
     private Product product;
