@@ -1,3 +1,4 @@
+/*
 package com.example.customerservice.Security;
 
 import org.keycloak.adapters.springsecurity.KeycloakConfiguration;
@@ -12,13 +13,17 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 public class KeyCloakConfiguration extends KeycloakWebSecurityConfigurerAdapter {
     @Override
     protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
-        /* Pour definer la stratégie qui l'on va utiliser -> stratégie par défaut SessionRegistryImpl */
+        */
+/* Pour definer la stratégie qui l'on va utiliser -> stratégie par défaut SessionRegistryImpl *//*
+
         return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /* Pour définir une authentification basée sur keycloak, keycloak qui va gérer les users et les roles*/
+        */
+/* Pour définir une authentification basée sur keycloak, keycloak qui va gérer les users et les roles*//*
+
         auth.authenticationProvider(keycloakAuthenticationProvider());
     }
 
@@ -26,9 +31,12 @@ public class KeyCloakConfiguration extends KeycloakWebSecurityConfigurerAdapter 
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
+        http.authorizeRequests().antMatchers("/h2-console/**", "/actuator/refresh/**").permitAll();
         http.headers().frameOptions().disable();
-        /* Pour dire qui chaque reqeute nécessaire une authentification*/
+        */
+/* Pour dire qui chaque reqeute nécessaire une authentification*//*
+
         http.authorizeRequests().anyRequest().authenticated();
     }
 }
+*/

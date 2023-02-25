@@ -3,7 +3,11 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../ConfigurationService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../ConfigurationService/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../CustomerService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../CustomerService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../DiscoveryService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../DiscoveryService/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../GatewayService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../GatewayService/src/main/resources" charset="UTF-8" />
   </component>
 </project>

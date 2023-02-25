@@ -16,7 +16,7 @@ public class GatewayServiceApplication {
         SpringApplication.run(GatewayServiceApplication.class, args);
     }
 
-    @Bean
+    //@Bean
     /* Pour spécifier les routes on peut utiliser l'objet RouteLocatorBuilder,
     * Aussi avec l'utilisation de cette technique il faut désactiver l'utilisation de eureka service (Registration service)*/
     RouteLocator routeLocator(RouteLocatorBuilder builder){
@@ -40,13 +40,14 @@ public class GatewayServiceApplication {
 
     /* Généralement les deux precedents méthodes sont utilisées dans le cas si ona un peu des services, et si on connaît les uri des services, pour
     * le mieux travail on peut utiliser le service eureka avec le code suivant :*/
-    //@Bean
+    @Bean
     /* Avec cette implémentation je demande si une fois le gateway reçoit une requete il regarde dans l'url de la requete et il prend le nom
     * de microservice après avec l'utilisation de registration service eureka gateway connait aux se trouve le microservice (port, @IP qui sont spécifié dans eureka)
     * et rediriger cette requete vers ce microservice*/
     DiscoveryClientRouteDefinitionLocator dynamicRoutes(ReactiveDiscoveryClient reactiveDiscoveryClient,
                                                         DiscoveryLocatorProperties discoveryLocatorProperties){
         return new DiscoveryClientRouteDefinitionLocator(reactiveDiscoveryClient,discoveryLocatorProperties);
+        /* Test : http://localhost:7777/CUSTOMER-SERVICE/customers */
     }
 }
 /* Don't use the underscore in the names of microservices because that make your host invalid*/

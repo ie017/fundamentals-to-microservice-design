@@ -2,19 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Service" />
+        <module name="CustomerService" />
         <module name="MicroserviceDesign" />
         <module name="DiscoveryService" />
-        <module name="Service" />
+        <module name="GatewayService" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CustomerService" options="-parameters" />
       <module name="DiscoveryService" options="-parameters" />
+      <module name="GatewayService" options="-parameters" />
       <module name="Service" options="-parameters" />
     </option>
   </component>
