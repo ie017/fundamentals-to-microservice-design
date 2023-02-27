@@ -14,7 +14,7 @@ value.username
 value.password
 ```
 
-### 4 - Create class to take these properties from consul localhost : 
+### 4 - Create an bean to take these properties from consul localhost : 
 ```bash
 @Component
 /*Pour prendre les proprieties qui débuter par value dans notre file : customer-service dans consul*/
@@ -43,6 +43,7 @@ public class ReceiveConsulConfigRestController {
 }
 ```
 ### 6 - Check the result : 
-![plot](C:\Users\ie\Desktop\MecroServicesDemo\CustomerService\ConsulConfigTest.png)
-
+<p align="center">
+<img src="https://raw.githubusercontent.com/ie017/fundamentals-to-microservice-design/main/CustomerService/ConsulConfigTest.png" />
+</p>
 ###### REMARK : We don't need to actuator or refreshScope to update the values of our properties just cha,ge it from consul ui, and they will be change automatically in our application.

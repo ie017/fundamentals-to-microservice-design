@@ -5,11 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-/*Pour prendre les proprieties qui débuter par value dans notre file : customer-service dans consul*/
-@ConfigurationProperties(prefix = "value")
+/* With this propertie ConfigurationProperties we don't need refreshScope annotation */
+@ConfigurationProperties(prefix = "connect-db")
 @Data
-public class ConsulConfig {
-    /* Les variables doivent avoir les memes nomes qui sont dans consul */
+public class VaultConfig {
     private String username;
     private String password;
 }
